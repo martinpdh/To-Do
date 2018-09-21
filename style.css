@@ -1,0 +1,262 @@
+﻿@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: table;
+    width: 100vw;
+    height: 100vh;
+    font-family: Roboto;
+    font-size: 24px;
+    overflow: hidden;
+}
+
+input, textarea, select, button {
+    cursor: pointer;
+    font-size: 0.8em;
+    border: none;
+    border-radius: 0.7em;
+    background: #E5E5E5;
+    color: black;
+    padding: 0.5em 0.75em;
+    display: block;
+    width: 100%;
+    font-family: Roboto;
+    resize: none;
+}
+
+.hidden{
+    display:none;
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+label {
+    display: block;
+    margin-top: 0.5em;
+}
+
+#header, #body {
+    display: table-row;
+}
+
+#header {
+    background: #696969;
+    height: 90px;
+    color: white;
+}
+
+
+
+    #header .section,
+    #body .section {
+        display: inline-block;
+        vertical-align: top;
+        margin-left: -5px;
+    }
+
+        #header .section.title,
+        #body .section.sidebar {
+            width: 300px;
+        }
+
+        #header .section.action {
+            width: calc(100% - 600px)
+        }
+
+        #body .section#ToDos {
+            width: calc(100% - 300px)
+        }
+
+        #header .section.filter {
+            width: 300px;
+        }
+
+        #body .section.details {
+            width: 0px;
+            overflow: hidden;
+        }
+
+body.details-opened #body .section.details {
+    width: 300px;
+}
+
+body.details-opened #body .section#ToDos {
+    width: calc(100% - 600px);
+}
+
+#header .section.title {
+    font-size: 50px;
+    text-align: center;
+   transform: translate(0, 15px);
+}
+
+#header .section.action #counter {
+    position: absolute;
+    top: 25px;
+    font-size: 1.5em;
+}
+
+#header .section.action input {
+    margin-right: 15px;
+    margin-left: auto;
+    width: 250px;
+    transform: translate(0, 35px);
+}
+
+#header .section.action .createToDo {
+    position: relative;
+    top: 0.25em;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    background-color: #AAFFA3;
+    border-radius: 50%;
+    font-size: 75px;
+    color: #075800;
+    border: none;
+    cursor: pointer;
+    font-family: Roboto;
+    line-height: 80px;
+    width: 75px;
+    height: 75px;
+    transition: box-shadow 0.2s, transform 0.2s;
+    font-weight: bolder;
+    text-shadow: 0px 0px 7px;
+}
+
+    #header .section.action .createToDo:hover {
+        transform: translate(-50%, 50%) rotate(180deg);
+        box-shadow: 0px 0px 10px 10px rgba(0, 0, 0, 0.25);
+    }
+
+#header .section.filter select {
+
+}
+
+#body .section.sidebar {
+    height: calc(100vh - 90px);
+    font-size: 1.2em;
+    background: #696969;
+    color: #E5E5E5;
+    padding: 0 1em;
+    overflow: auto;
+}
+
+    #body .section.sidebar ul {
+        margin-top: 1em;
+    }
+
+        #body .section.sidebar ul li {
+            list-style: none;
+            padding-left: 0.5em;
+            border-left: 2px solid transparent;
+            margin: 0.5em 0;
+        }
+
+            #body .section.sidebar ul li.active {
+                border-color: #AAFFA3;
+                color: #AAFFA3;
+            }
+
+#body .section#ToDos {
+    background: #E3E3E3;
+    height: calc(100vh - 90px);
+    overflow: auto;
+    padding: 0.5em;
+}
+
+    #body .section#ToDos .ToDo {
+        vertical-align: top;
+        display: inline-block;
+        margin: 0.6em;
+        width: 200px;
+        height: 200px;
+        border-radius: 15px;
+        background-color: #FFFFFF;
+        color: #000000;
+        font-family: Roboto;
+        font-size: 36px;
+        line-height: 42px;
+        border: 1px solid #C4C4C4;
+        box-shadow: 0px 0px 6px 6px rgba(0, 0, 0, 0.5);
+        overflow: hidden;
+        padding: 0.5em;
+    }
+
+        #body .section#ToDos .ToDo h3 {
+            margin-top: -2.8em;
+            word-break: break-all;
+        }
+
+        #body .section#ToDos .ToDo .counter {
+            position: relative;
+            left: -0.7em;
+            top: calc(100% - 5em);
+            font-size: 0.5em;
+            background: white;
+            padding: 0 5px;
+        }
+
+        #body .section#ToDos .ToDo .button-container {
+            left: calc(70% + 2px);
+            top: calc(70% + 2px);
+            border-radius: 15px;
+            position: relative;
+            overflow: hidden;
+            width: 65px;
+            height: 65px;
+        }
+
+            #body .section#ToDos .ToDo .button-container .ToDoBtn {
+                border: none;
+                background: #FFCE6E;
+                border-radius: 50%;
+                cursor: pointer;
+                width: 65px;
+                height: 65px;
+                margin: 10px 0px 0px 10px;
+            }
+
+        #body .section#ToDos .ToDo.done .button-container .ToDoBtn {
+            background-color: #AAFFA3;
+        }
+
+        #body .section#ToDos .ToDo .button-container .ToDoBtn span {
+            font-size: 1.75em;
+            position: relative;
+            left: -0.15em;
+            top: -0.3em;
+        }
+
+#body .section.details {
+    padding: 1em;
+    height: calc(100vh - 90px);
+    overflow: auto;
+}
+
+    #body .section.details .close-details {
+        float: right;
+    }
+
+    #body .section.details .task {
+        font-family: Roboto;
+        text-align: left;
+        color: black;
+        border: none;
+        border-radius: 0.7em;
+        background: #E5E5E5;
+        padding: 0.5em 0.75em;
+        display: block;
+        width: 100%;
+        margin: 0.5em 0;
+    }
+
+        #body .section.details .task.done {
+            background: #AAFFA3
+        }

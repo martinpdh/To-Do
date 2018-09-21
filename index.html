@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+
+    <script src="main.js" ></script>
+
+    <link href="style.css" rel="stylesheet" />
+</head>
+<body>
+
+    <div id="header">
+        <div class="title section">Hartog-Do</div>
+        <div class="section action">
+            <div id="counter">
+                <!-- Counter soll angezeigt werden -->
+            </div>
+
+            <div class="createToDo" onclick="openToDoHandler(-1)">&#65291;</div>
+        </div>
+        <div class="search section">
+            <br />
+            <input oninput="searchHandler(event);" name="searchToDos" placeholder="Suchen..." />
+            <div style="height:1em;"></div>
+        </div>
+    </div>
+    <div id="body">
+        <div class="sidebar section">
+            <form onsubmit="event.preventDefault(); createListHandler();"><input name="newList" id="new-list" placeholder="Neue Liste..." /></form>
+            <ul id="list-select">
+           <!-- Hier werden ToDoListen angezeigt -->
+            </ul>
+        </div>
+
+        <div id="ToDos" class="section">
+            <!-- Hier werden die ToDos dargestellt und eingefügt -->
+        </div>
+
+        <div class="details section">
+            <div class="close-details" onclick="closeDetailsHandler()">x</div>
+            <form onsubmit="event.preventDefault(); saveToDoHandler();">
+                <input type="hidden" name="id" />
+                <input type="hidden" name="done" />
+                <input type="hidden" name="deleted" />
+                <input name="title" placeholder="ToDo-Title" required/>
+                <label>Beschreibung</label>
+                <textarea name="description" placeholder="Neuer Task..."></textarea>
+                <br />
+
+                <button type="submit">Speichern</button>
+                <br />
+                <button id="details-delete-button" style="background:rgba(255,0,0,0.2);"type="button" onclick="deleteToDoHandler()">Löschen</button>
+            </form>
+            <br />
+            <div id="details-tasks">
+                <h3>Tasks</h3>
+                <form onsubmit="event.preventDefault(); addTaskHandler(event);">
+                    <input name="newTask" id="newTaskInput" placeholder="Neuer Task..." style="margin-bottom: 1em;" />
+                </form>
+                <div id="taskContainer"></div>
+            </div>
+
+
+        </div>
+    </div>
+
+
+</body>
+</html>
